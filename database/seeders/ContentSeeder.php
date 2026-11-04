@@ -43,28 +43,24 @@ class ContentSeeder extends Seeder
     private function clients(): void
     {
         $clients = [
-            ['Prempeh College', null, 'https://prempehcollege.edu.gh'],
+            ['Prempeh College', 'prempeh-college.webp', 'https://prempehcollege.edu.gh'],
             ['Fening School', 'fening-school.png', null],
-            ["St. Monique's Montessori School", null, 'http://stmoniquesmontessori.edu.gh/'],
-            ['Metro Health Hospital', 'metro-health-hospital.png', null],
+            ["St. Monique's Montessori School", 'st-moniques-montessori.jpg', 'http://stmoniquesmontessori.edu.gh/'],
+            ['Metro Health Hospital', 'metro-health-hospital.png', 'https://metrohealthgh.com/'],
             ['Otisam', 'otisam.svg', null],
             ['St. Louis College of Education', 'st-louis-college-of-education.png', 'https://slce.edu.gh'],
             ['PCG Peyer Memorial Congregation, Bantama', 'pcg-peyer-memorial.png', null],
-            ['KNUST PWC', null, 'https://www.knust.edu.gh'],
-            ['Parliament of Ghana', null, 'https://www.parliament.gh'],
             ['AAMUSTED', 'aamusted.png', 'https://www.aamusted.edu.gh'],
-            ['Simms Senior High School', null, null],
-            ['Excel Education Centre, UK', null, null],
+            ['Simms Senior High School', 'simms-shs.jpg', null],
             ['GhCodeHub', 'ghcodehub.png', 'https://ghcodehub.com'],
-            ['Kumasi Metropolitan Assembly (KMA)', null, null],
-            ['Atwima Nwabiagya, Ashanti', null, null],
-            ['Drezwell, Accra', null, null],
-            ['Humble Mother Pharmacy', null, null],
-            ['Naky Publications', null, null],
-            ['Salaga Senior High School', null, null],
-            ['Nana Fx Cartel', null, null],
-            ['Yaf Ghana', null, null],
+            ['Drezwell, Accra', 'drezwell.jpg', null],
+            ['Naky Publications', 'naky-publications.jpg', null],
+            ['Yaf Ghana', 'yaf-ghana.png', 'https://yafghana.org/'],
             ['Ashlocs, UK', 'ashlocs.png', 'https://ashlocs.co.uk/'],
+            ['Kids Palace School', 'kids-palace-school.png', 'https://kidspalaceschool.com/'],
+            ['SigmaCorp Ghana', 'sigmacorp.jpg', 'https://sigmacorpgh.com/'],
+            ['Niragira Community Development Project (NCDP)', 'ncdp.png', 'https://niragiracommunitydevelopment.org/'],
+            ['Quayson College Consulting', 'quayson-college-consulting.png', 'https://quaysoncollegeconsulting.com/'],
         ];
 
         foreach ($clients as $i => [$name, $logo, $url]) {
@@ -269,9 +265,8 @@ class ContentSeeder extends Seeder
             'stat_clients' => '80',
             'stat_success' => '98',
             'partners' => implode("\n", [
-                'Atwima Nwabiagya – Ashanti', 'Kumasi Metropolitan Assembly (KMA)', 'Parliament of Ghana (IT Dept)', 'Metro Hospital – Kumasi',
-                'Excel Education Centre – UK', 'AAMUSTED (DigiMakt Project)', 'Drezwell – Accra', 'Prempeh College', 'St. Louis College of Education',
-                'Humble Mother Pharmacy', 'Naky Publications', 'Salaga SHS', 'Simms SHS', 'Nana Fx Cartel', 'Yaf Ghana',
+                'Metro Hospital – Kumasi', 'AAMUSTED (DigiMakt Project)', 'Drezwell – Accra', 'Prempeh College', 'St. Louis College of Education',
+                'Naky Publications', 'Simms SHS', 'Yaf Ghana',
             ]),
         ];
 

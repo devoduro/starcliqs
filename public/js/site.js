@@ -134,23 +134,6 @@
         counters.forEach(function (c) { c.textContent = '0'; counterObserver.observe(c); });
     }
 
-    // Custom cursor (mouse only).
-    var cursorDot = document.querySelector('.cursor-dot');
-    var cursorOutline = document.querySelector('.cursor-outline');
-    if (finePointer && cursorDot && cursorOutline) {
-        window.addEventListener('mousemove', function (e) {
-            document.body.classList.add('cursor-ready');
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-            cursorOutline.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: 'forwards' });
-        });
-        document.addEventListener('mouseleave', function () { document.body.classList.remove('cursor-ready'); });
-        document.querySelectorAll('a, button, .glass-card, .product-card, .help-card').forEach(function (el) {
-            el.addEventListener('mouseenter', function () { cursorOutline.classList.add('hovering'); });
-            el.addEventListener('mouseleave', function () { cursorOutline.classList.remove('hovering'); });
-        });
-    }
-
     // 3D tilt on cards (mouse only).
     if (window.VanillaTilt && finePointer && !reduceMotion) {
         window.VanillaTilt.init(document.querySelectorAll('.glass-card:not(.no-tilt), .product-card, .about-img-item, .stats-item, .help-card'), {

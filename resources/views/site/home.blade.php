@@ -229,28 +229,23 @@
                 </div>
             </div>
 
-            {{-- Scrolling strip: two rows in opposite directions once there are enough clients. Each row is
-                 padded to at least 8 cards and then repeated, so the loop never shows a gap. --}}
+            {{-- Scrolling strip: every client in one row, padded to at least 8 cards and then repeated,
+                 so the loop never shows a gap. --}}
             @php
-                $clientRows = $clients->count() > 8 ? $clients->chunk((int) ceil($clients->count() / 2)) : collect([$clients]);
+                $set = $clients->values();
+                while ($set->count() < 8) { $set = $set->concat($clients->values()); }
             @endphp
             <div class="client-marquee" data-aos="fade-up">
-                @foreach ($clientRows as $rowIndex => $row)
-                    @php
-                        $set = $row->values();
-                        while ($set->count() < 8) { $set = $set->concat($row->values()); }
-                    @endphp
-                    <div class="marquee-row {{ $rowIndex % 2 ? 'reverse' : '' }}" style="--marquee-duration: {{ $set->count() * 5 }}s">
-                        <div class="marquee-track">
-                            @foreach ($set as $i => $client)
-                                @include('site.partials.client-card', ['client' => $client, 'copy' => $i >= $row->count()])
-                            @endforeach
-                            @foreach ($set as $client)
-                                @include('site.partials.client-card', ['client' => $client, 'copy' => true])
-                            @endforeach
-                        </div>
+                <div class="marquee-row" style="--marquee-duration: {{ $set->count() * 5 }}s">
+                    <div class="marquee-track">
+                        @foreach ($set as $i => $client)
+                            @include('site.partials.client-card', ['client' => $client, 'copy' => $i >= $clients->count()])
+                        @endforeach
+                        @foreach ($set as $client)
+                            @include('site.partials.client-card', ['client' => $client, 'copy' => true])
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
             </div>
         </section>
     @endif

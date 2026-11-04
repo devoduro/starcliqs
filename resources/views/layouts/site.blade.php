@@ -148,10 +148,6 @@
         </svg>
     </div>
 
-    <!-- Custom cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     @if (session('success'))
         <div class="flash" role="status"><i class="fas fa-circle-check mt-1"></i><div>{{ session('success') }}</div></div>
     @endif
