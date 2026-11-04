@@ -1,0 +1,7 @@
+# Serve the Laravel app from public/ when the project folder itself is the web root
+# (e.g. http://localhost/starcliqs on XAMPP, or shared hosting).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
